@@ -3,6 +3,10 @@ package com.example.demo.Model;
 import jakarta.persistence.*;
 import java.util.List;
 
+/*
+  Clase que representa un curso en el sistema.
+  Contiene información básica sobre el curso y su relación con los estudiantes.
+ */
 @Entity
 public class Curso {
     @Id
@@ -10,6 +14,11 @@ public class Curso {
     private long codigo;
     private String nombre;
 
+    /*
+      Relación de muchos a muchos con la clase Estudiante.
+      Un curso puede tener múltiples estudiantes inscritos.
+      La relación es mapeada por el atributo 'cursos' en la clase Estudiante.
+     */
     @ManyToMany(mappedBy = "cursos")
     private List<Estudiante> estudiantes;
 

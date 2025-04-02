@@ -3,6 +3,10 @@ package com.example.demo.Model;
 import jakarta.persistence.*;
 import java.util.List;
 
+/*
+  Clase que representa a un estudiante en el sistema.
+  Contiene información básica como el nombre, teléfono y sus relaciones con cursos y asignaturas.
+ */
 @Entity
 public class Estudiante {
     @Id
@@ -10,7 +14,10 @@ public class Estudiante {
     private long codigo;
     private String nombre;
     private String telefono;
-
+    /*
+      Relación de muchos a muchos con la clase Curso.
+      Un estudiante puede estar inscrito en múltiples cursos.
+     */
     @ManyToMany
     @JoinTable(
             name = "estudiante_curso", // Nombre de la tabla de unión
@@ -19,6 +26,10 @@ public class Estudiante {
     )
     private List<Curso> cursos;
 
+    /*
+      Relación de muchos a muchos con la clase Asignatura.
+      Un estudiante puede estar inscrito en múltiples asignaturas.
+     */
     @ManyToMany
     @JoinTable(
             name = "estudiante_asignatura",

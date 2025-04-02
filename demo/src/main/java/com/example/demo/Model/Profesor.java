@@ -2,15 +2,24 @@ package com.example.demo.Model;
 
 import jakarta.persistence.*;
 
+/*
+ Clase que representa a un profesor en el sistema.
+ Contiene información básica como el nombre, email y una relación uno a uno con DetalleProfesor.
+ */
 @Entity
 @Table(name = "profesor")
 public class Profesor {
+    /* Identificador único del profesor */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
     private String email;
 
+    /*
+      Relación uno a uno con DetalleProfesor.
+      Un profesor tiene detalles adicionales como dirección y teléfono.
+     */
     @OneToOne
     @JoinColumn(name = "detalle_profesor_id")
     private DetalleProfesor detalleProfesor;

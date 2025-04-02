@@ -11,6 +11,10 @@ public class DetalleProfesor {
     private String direccion;
     private String telefono;
 
+    /*
+      Relación uno a uno con DetalleProfesor.
+      Un profesor tiene detalles adicionales como dirección y teléfono.
+     */
     @OneToOne(mappedBy = "detalleProfesor")
     private Profesor profesor;
 
